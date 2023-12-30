@@ -1,7 +1,7 @@
 import authdash from '../../assets/authdashboard.png';
 import miPortafolio3 from '../../assets/portfoliov3.png';
 import miPortafolio from '../../assets/miPortafolio.png';
-import avatar from '../../assets/avatar2.jpeg';
+import avatar from '../../assets/avatar2.png';
 
 function PresentationComponent() {
 
@@ -14,7 +14,7 @@ function PresentationComponent() {
                             <h1 className='text-8xl items-center m-2 text-blue-200'>Hola, </h1>
                             <h1 className='text-8xl items-center m-2'>soy Leonardo Burgos</h1>
                         </div>
-                        <img className='rounded-full' width='330' src={avatar} />
+                        <img className='rounded-full bg-blue-200' width='330' src={avatar} />
                     </div>
 
                 </div>
