@@ -45,36 +45,37 @@ function ProyectComponent() {
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={authdash} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">AUTHDashboard</span>
-                            <p className='pb-2'>Proyecto personal front-end de administración de autenticación de usuarios</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:text-lg lg:font-bold lg:pb-2">AUTHDashboard</span>
+                            <p className='hidden lg:pb-2'>Proyecto personal front-end de administración de autenticación de usuarios</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className=' bg-slate-950 rounded-full p-2 m-1'>
                                     <AngularIcon alto={30} ancho={30} ></AngularIcon>
                                 </div>
                             </div>
                             <a href='https://dashboard.auth.leonardoburgosd.site' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
                         </div>
                     </div>
                 </div>
+                
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={miPortafolio3} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">Mi portafolio V3</span>
-                            <p className='pb-2'>Diseño y distribución de mi portafolio versión 3</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:text-lg font-bold pb-2">Mi portafolio V3</span>
+                            <p className='hidden lg:pb-2'>Diseño y distribución de mi portafolio versión 3</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className=' bg-red-800 rounded-full p-2 m-1'>
                                     <FigmaIcon alto={30} ancho={30} ></FigmaIcon>
                                 </div>
                             </div>
                             <a href='https://www.figma.com/file/PJXVqcBYWrqIfuBgT3HUny/Portafolio?type=design&node-id=0%3A1&mode=design&t=t4aeTVBxPirM40eO-1' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
@@ -86,10 +87,10 @@ function ProyectComponent() {
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={miPortafolio} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">Mi portafolio V1</span>
-                            <p className='pb-2'>Proyecto HTML y CSS (versión 1)</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:text-lg font-bold pb-2">Mi portafolio V1</span>
+                            <p className='hidden lg:pb-2'>Proyecto HTML y CSS (versión 1)</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className=' bg-blue-900 rounded-full p-2 m-1'>
                                     <ReactIcon alto={30} ancho={30} ></ReactIcon>
                                 </div>
@@ -99,7 +100,7 @@ function ProyectComponent() {
                             </div>
 
                             <a href='https://github.com/leonardoburgosd/leonardoburgosd.github.io' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
@@ -111,10 +112,10 @@ function ProyectComponent() {
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={buttonstyle} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">ButtonStyle</span>
-                            <p className='pb-2'>Proyecto con HTML y CSS de estilo de botones</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:text-lg font-bold pb-2">ButtonStyle</span>
+                            <p className='hidden lg:pb-2'>Proyecto con HTML y CSS de estilo de botones</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className='bg-orange-400 rounded-full p-2 m-1'>
                                     <HTMLIcon alto={30} ancho={30} ></HTMLIcon>
                                 </div>
@@ -123,61 +124,64 @@ function ProyectComponent() {
                                 </div>
                             </div>
                             <a href='https://github.com/leonardoburgosd/button-styles' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
                         </div>
                     </div>
                 </div>
+                
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={bc} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">BCreate</span>
-                            <p className='pb-2'>Estructura SQL para crear un blog</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:text-lg font-bold pb-2">BCreate</span>
+                            <p className='hidden lg:pb-2'>Estructura SQL para crear un blog</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className=' bg-yellow-600 rounded-full p-2'>
                                     <SqlServerIcon alto={30} ancho={30}></SqlServerIcon>
                                 </div>
                             </div>
                             <a href='https://github.com/leonardoburgosd/bd-structure' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
                         </div>
                     </div>
                 </div>
+                
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={integra} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">Integra:login</span>
-                            <p className='pb-2'>Proyecto de diseño de registro y login en Photoshop</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:tex-lg font-bold pb-2">Integra:login</span>
+                            <p className='hidden lg:pb-2'>Proyecto de diseño de registro y login en Photoshop</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className=' bg-blue-500 rounded-full p-2'>
                                     <PhotoshopIcon alto={30} ancho={30} ></PhotoshopIcon>
                                 </div>
                             </div>
                             <a href='https://github.com/leonardoburgosd/integra-group' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={akamika} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">Akamika</span>
-                            <p className='pb-2'>Proyecto MVC en C# y SQL Server</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:text-lg font-bold pb-2">Akamika</span>
+                            <p className='hidden lg:pb-2'>Proyecto MVC en C# y SQL Server</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className=' bg-purple-500 rounded-full p-2 m-1'>
                                     <CSharpIcon alto={30} ancho={30}></CSharpIcon>
                                 </div>
@@ -189,21 +193,22 @@ function ProyectComponent() {
                                 </div>
                             </div>
                             <a href='https://www.youtube.com/watch?v=63l2ByJUAUM&t=120s' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
                         </div>
                     </div>
                 </div>
+                
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={wpf} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">Azure Web API y WPF</span>
-                            <p className='pb-2'>Proyecto de escritorio con .Net Framework, SqlServer y WPF</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:text-lg font-bold pb-2">Azure Web API y WPF</span>
+                            <p className='hidden lg:pb-2'>Proyecto de escritorio con .Net Framework, SqlServer y WPF</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className=' bg-red-400 rounded-full p-2 m-1'>
                                     <AzureIcon alto={30} ancho={30} ></AzureIcon>
                                 </div>
@@ -215,21 +220,22 @@ function ProyectComponent() {
                                 </div>
                             </div>
                             <a href='https://codcafein.azurewebsites.net/2018/01/14/aplicacion-de-escritorio-con-wpf-y-web-api-c/' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={firebase} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
                         <div className='flex flex-col items-start p-2'>
-                            <span className="text-[#2F80ED] text-xl font-bold pb-2">IoT Básico</span>
-                            <p className='pb-2'>Proyecto en Arduino, WinForms, Firebase y Xamarin</p>
-                            <span className='text-yellow-200'>Tecnologías implementadas:</span>
-                            <div className='flex flex-wrap'>
+                            <span className="text-[#2F80ED] lg:text-xl sm:text-lg font-bold pb-2">IoT Básico</span>
+                            <p className='hidden lg:pb-2'>Proyecto en Arduino, WinForms, Firebase y Xamarin</p>
+                            <span className='hidden lg:text-yellow-200'>Tecnologías implementadas:</span>
+                            <div className='hidden lg:flex lg:flex-wrap'>
                                 <div className=' bg-yellow-900 rounded-full p-2 m-1'>
                                     <FirebaseIcon alto={30} ancho={30} ></FirebaseIcon>
                                 </div>
@@ -244,7 +250,7 @@ function ProyectComponent() {
                                 </div>
                             </div>
                             <a href='https://www.youtube.com/watch?v=whdph6Q_oek' target="_blank"
-                                rel="noreferrer" className='flex items-center p-2 rounded-2xl text-xl m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
+                                rel="noreferrer" className='flex items-center p-2 rounded-2xl lg:text-xl sm:text-lg m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
                                 Acceder
                                 <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
                             </a>
