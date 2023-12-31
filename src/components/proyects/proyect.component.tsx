@@ -27,7 +27,7 @@ import ArduinoIcon from '../../assets/icons/arduino.icon';
 function ProyectComponent() {
     return (
         <>
-            <div id='proyects' className="flex items-center justify-center py-4 md:py-8 flex-wrap">
+            {/* <div id='proyects' className="flex items-center justify-center py-4 md:py-8 flex-wrap">
                 <button type="button" className="text-[#2F80ED] hover:text-white border border-[#2F80ED] bg-white hover:bg-[#2F80ED] focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800">
                     All
                 </button>
@@ -39,8 +39,8 @@ function ProyectComponent() {
                     Vite</button>
                 <button type="button" className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">
                     Java</button>
-            </div>
-            <div  className="grid grid-cols-2 md:grid-cols-4 gap-0">
+            </div> */}
+            <div id='proyects' className="grid grid-cols-2 md:grid-cols-4 gap-0">
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={authdash} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
@@ -61,7 +61,7 @@ function ProyectComponent() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={miPortafolio3} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
@@ -131,7 +131,7 @@ function ProyectComponent() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={bc} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
@@ -152,7 +152,7 @@ function ProyectComponent() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={integra} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
@@ -200,7 +200,7 @@ function ProyectComponent() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className='relative group'>
                     <img className="w-full h-auto transition-opacity duration-300 group-hover:opacity-70 max-w-full" src={wpf} alt="" />
                     <div className="absolute inset-0 flex items-center p-12 justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-95 bg-zinc-800 shadow-inner">
