@@ -1,6 +1,7 @@
 import authdash from '../../assets/authdashboard.png';
-import miPortafolio3 from '../../assets/portfoliov3.png';
-import miPortafolio from '../../assets/miPortafolio.png';
+import buttonstyle from '../../assets/buttonstyleportada.png';
+import bc from '../../assets/bcCreate.png';
+
 import avatar from '../../assets/avatar2.png';
 
 function PresentationComponent() {
@@ -38,10 +39,10 @@ function PresentationComponent() {
                             <img className='w-full h-full object-cover' src={authdash} />
                         </div>
                         <div className='h-35 w-70 relative bg-white rounded m-1'>
-                            <img className='w-full h-full object-cover' src={miPortafolio3} />
+                            <img className='w-full h-full object-cover' src={buttonstyle} />
                         </div>
                         <div className='h-35 w-70 relative bg-white rounded m-1'>
-                            <img className='w-full h-full object-cover' src={miPortafolio} />
+                            <img className='w-full h-full object-cover' src={bc} />
                         </div>
                     </div>
                 </div>
@@ -66,10 +67,10 @@ function PresentationComponent() {
                             <img className='w-full h-full object-cover ' src={authdash} />
                         </div>
                         <div className='h-35 w-70 relative bg-white rounded m-1'>
-                            <img className='w-full h-full object-cover ' src={miPortafolio3} />
+                            <img className='w-full h-full object-cover ' src={buttonstyle} />
                         </div>
                         <div className='h-35 w-70 relative bg-white rounded m-1'>
-                            <img className='w-full h-full object-cover ' src={miPortafolio} />
+                            <img className='w-full h-full object-cover ' src={bc} />
                         </div>
                     </div>
                 </div>

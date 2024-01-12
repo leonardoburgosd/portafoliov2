@@ -14,7 +14,7 @@ function AboutMeComponent() {
                         como <b className='text-yellow-200'>desarrollador .NET</b> en servicios REST y de escritorio, y más de dos años de
                         experiencia como <b className='text-yellow-200'>desarrollador Angular</b>.
                     </p>
-                    <a href='https://drive.google.com/file/d/1oaq5No8HwBECQ_qcb30HrK21zeGXtaZG/view?usp=sharing' target="_blank"
+                    <a href='https://drive.google.com/file/d/1Tr57ybIYZXgVx-q3Gv_a7Lbx2PpanrVL/view?usp=sharing' target="_blank"
                         rel="noreferrer" className='bg-[#2F80ED] p-3 rounded-md text-lg font-semibold items-center flex m-3'>
                         <FontAwesomeIcon icon={faFileWord} className='pr-3 pl-1' />
                         View CV
@@ -70,7 +70,7 @@ function AboutMeComponent() {
                         como <b className='text-yellow-200'>desarrollador .NET</b> en servicios REST y de escritorio, y más de dos años de
                         experiencia como <b className='text-yellow-200'>desarrollador Angular</b>.
                     </p>
-                    <a href='https://drive.google.com/file/d/1oaq5No8HwBECQ_qcb30HrK21zeGXtaZG/view?usp=sharing' target="_blank"
+                    <a href='https://drive.google.com/file/d/1Tr57ybIYZXgVx-q3Gv_a7Lbx2PpanrVL/view?usp=sharing' target="_blank"
                         rel="noreferrer" className='bg-[#2F80ED] p-3 rounded-md text-lg font-semibold items-center flex m-3'>
                         <FontAwesomeIcon icon={faFileWord} className='pr-3 pl-1' />
                         View CV

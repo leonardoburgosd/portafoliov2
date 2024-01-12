@@ -1,9 +1,9 @@
 import "./App.css";
-import AboutMeComponent from "./components/about me/aboutme.component";
-import FooterComponent from "./components/footer/footer.component";
-import HeaderComponent from "./components/header/header.component";
-import PresentationComponent from "./components/presentation/presentation.component";
-import ProyectComponent from "./components/proyects/proyect.component";
+import AboutMeComponent from "./parts/about me/aboutme.component";
+import FooterComponent from "./parts/footer/footer.component";
+import HeaderComponent from "./parts/header/header.component";
+import PresentationComponent from "./parts/presentation/presentation.component";
+import ProyectComponent from "./parts/proyects/proyect.component";
 
 function App() {
   return (

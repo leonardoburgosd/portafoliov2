@@ -28,7 +28,7 @@ const FooterComponent: React.FC = () => {
             email.description = datosEnvio.descripcion;
             email.subject = datosEnvio.email + ': te envió un mensaje';
 
-            await fetch('https://mailsend-eight.vercel.app/send', {
+            await fetch('https://sendmail.leonardoburgosd.site/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
