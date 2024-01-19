@@ -38,8 +38,9 @@ function ProyectComponent() {
                     image={authdash}
                     title='AUTHDashboard'
                     description='Proyecto de administración de autenticación de usuarios'
-                    link='https://dashboard.auth.leonardoburgosd.site'
+                    link='https://auth0rize.leonardoburgosd.site'
                     icons={[
+                        <CSharpIcon alto={30} ancho={30} />,
                         <AngularIcon alto={30} ancho={30} />
                     ]} />
 
@@ -75,7 +76,7 @@ function ProyectComponent() {
                     image={akamika}
                     title='Akamika'
                     description='Platforma de educación online'
-                    link='https://github.com/leonardoburgosd/integra-group'
+                    link='https://www.youtube.com/watch?v=63l2ByJUAUM'
                     icons={[
                         <CSharpIcon alto={30} ancho={30} />,
                         <SqlServerIcon alto={30} ancho={30} />,
