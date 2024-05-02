@@ -61,7 +61,7 @@ function PresentationComponent() {
                     </div>
                 </div>
                 <div className='w-1/2'>
-                    <a href='#proyects'>Últimos proyectos</a>
+                    {/* <a href='#proyects'>Últimos proyectos</a>
                     <div className='flex bg-opacity-100'>
                         <div className='h-35 w-70 relative bg-white rounded m-1'>
                             <img className='w-full h-full object-cover ' src={authdash} />
@@ -72,7 +72,7 @@ function PresentationComponent() {
                         <div className='h-35 w-70 relative bg-white rounded m-1'>
                             <img className='w-full h-full object-cover ' src={bc} />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

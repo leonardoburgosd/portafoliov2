@@ -16,8 +16,26 @@ import CSharpIcon from '../../assets/icons/csharp.icon';
 import XamarinIcon from '../../assets/icons/xamarin.icon';
 import ArduinoIcon from '../../assets/icons/arduino.icon';
 import CardImage from '../../components/card-image.component';
+import { useEffect, useState } from 'react';
+import Proyects from '../../data/entities/project/entityProject';
+import { getProjects } from '../../data/services/projects.services';
 
 function ProyectComponent() {
+    const [projects, setProyects] = useState<Proyects[]>([]);
+
+    const obtenerProyectos = async () => {
+        const projectResponse: Proyects[] = await getProjects();
+        debugger
+        setProyects(projectResponse);
+    }
+
+
+    useEffect(() => {
+        obtenerProyectos();
+    }, []);
+
+
+
     return (
         <>
             {/* <div id='proyects' className="flex items-center justify-center py-4 md:py-8 flex-wrap">
@@ -34,6 +52,18 @@ function ProyectComponent() {
                     Java</button>
             </div> */}
             <div id='proyects' className="grid grid-cols-2 md:grid-cols-4 gap-0">
+                {projects.map((project, index) => (
+                    <CardImage
+                        key={index}
+                        image={'../../assets/'+project.image}
+                        title={project.title}
+                        description={project.description}
+                        link={project.link}
+                        icons={ [
+                            <CSharpIcon alto={30} ancho={30} />,
+                            <AngularIcon alto={30} ancho={30} />
+                        ]} />
+                ))}
                 <CardImage
                     image={authdash}
                     title='AUTHDashboard'

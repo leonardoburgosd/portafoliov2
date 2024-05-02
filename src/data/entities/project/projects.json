@@ -1,0 +1,63 @@
+[
+    {
+        "image": "authdashboard.png",
+        "title": "Auth0rize",
+        "description": "Proyecto de administración de autenticación de usuarios",
+        "link": "https://auth0rize.leonardoburgosd.site",
+        "icons": [
+            "csharp",
+            "angular"
+        ]
+    },
+    {
+        "image": "buttonstyleportada.png",
+        "title": "ButtonStyle",
+        "description": "Proyecto con HTML y CSS de estilo de botones",
+        "link": "https://github.com/leonardoburgosd/button-styles",
+        "icons": [
+            "html",
+            "css"
+        ]
+    },
+    {
+        "image": "bcCreate.png",
+        "title": "BCreate",
+        "description": "Estructura y código SQL para crear un blog",
+        "link": "https://github.com/leonardoburgosd/bd-structure",
+        "icons": [
+            "sqlserver"
+        ]
+    },
+    {
+        "image": "integragroup.jpg",
+        "title": "Integra: Login",
+        "description": "Proyecto de diseño de registro y login en Photoshop",
+        "link": "https://github.com/leonardoburgosd/integra-group",
+        "icons": [
+            "photoshop"
+        ]
+    },
+    {
+        "image": "akamikaProyc.png",
+        "title": "Akamika",
+        "description": "Platforma de educación online",
+        "link": "https://www.youtube.com/watch?v=63l2ByJUAUM",
+        "icons": [
+            "csharp",
+            "sqlserver",
+            "bootstrap"
+        ]
+    },
+    {
+        "image": "firebaseProyc.png",
+        "title": "Aplicativo movil con IOT",
+        "description": "Proyecto encendido de diodo led desde Xamarin con Firebase y Arduino sin ESP",
+        "link": "https://www.youtube.com/watch?v=whdph6Q_oek",
+        "icons": [
+            "firebase",
+            "csharp",
+            "xamarin",
+            "arduino"
+        ]
+    }
+]
