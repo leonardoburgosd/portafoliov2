@@ -23,6 +23,12 @@ function AboutMeComponent() {
                 <div className='flex flex-col w-full p-6 items-start'>
                     <h1 className='text-2xl font-bold p-4'>Experiencia</h1>
                     <ol className="relative border-s border-gray-200 dark:border-gray-700">
+                        <li className='mb-10 ms-4'>
+                            <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                            <time className="mb-1 text-sm font-normal leading-none text-blue-300 dark:text-blue-200">Febrero 2024</time>
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Multilingual - Backend developer</h3>
+                            <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Implementacion con NestJs, NextJs, React, .NET Core, Azure AD B2C, Azure Functions, Azure Service Bus</p>
+                        </li>
                         <li className="mb-10 ms-4">
                             <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                             <time className="mb-1 text-sm font-normal leading-none text-blue-300 dark:text-blue-200">Diciembre 2022</time>
@@ -49,7 +55,7 @@ function AboutMeComponent() {
                         </li>
                         <li className="ms-4">
                             <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                            <time className="mb-1 text-sm font-normal leading-none text-blue-300 dark:text-blue-200">Febrero 2018 <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Primer trabajo</span></time>
+                            <time className="mb-1 text-sm font-normal leading-none text-blue-300 dark:text-blue-200">Febrero 2018 <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Primer empleo</span></time>
                             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Equipo de desarrollo independiente - Desarrollador fullstack </h3>
                             <p className="mb-4 text-base text-gray-500 dark:text-gray-400 font-semibold">Back-end</p>
                             <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Web API (.NET), Dapper, SqlServer</p>
@@ -79,6 +85,12 @@ function AboutMeComponent() {
                 <div className='flex flex-col w-1/2 p-4 items-start'>
                     <h1 className='text-2xl font-bold p-4'>Experiencia</h1>
                     <ol className="relative border-s border-gray-200 dark:border-gray-700">
+                        <li className='mb-10 ms-4'>
+                            <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                            <time className="mb-1 text-sm font-normal leading-none text-blue-300 dark:text-blue-200">Febrero 2024</time>
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Multilingual - Backend developer</h3>
+                            <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Implementacion con NestJs, NextJs, React, .NET Core, Azure AD B2C, Azure Functions, Azure Service Bus</p>
+                        </li>
                         <li className="mb-10 ms-4">
                             <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                             <time className="mb-1 text-sm font-normal leading-none text-blue-300 dark:text-blue-200">Diciembre 2022</time>

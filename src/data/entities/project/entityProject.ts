@@ -3,6 +3,7 @@
     public title!: string;
     public description!: string;
     public link!: string;
+    public fuente!:string;
     public icons!: string[];
 }
 

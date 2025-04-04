@@ -1,47 +1,52 @@
 [
     {
-        "image": "authdashboard.png",
+        "image": "authdashboard",
         "title": "Auth0rize",
         "description": "Proyecto de administración de autenticación de usuarios",
         "link": "https://auth0rize.leonardoburgosd.site",
+        "fuente": "externa",
         "icons": [
             "csharp",
             "angular"
         ]
     },
     {
-        "image": "buttonstyleportada.png",
+        "image": "buttonstyleportada",
         "title": "ButtonStyle",
         "description": "Proyecto con HTML y CSS de estilo de botones",
         "link": "https://github.com/leonardoburgosd/button-styles",
+        "fuente": "externa",
         "icons": [
             "html",
             "css"
         ]
     },
     {
-        "image": "bcCreate.png",
+        "image": "bcCreate",
         "title": "BCreate",
-        "description": "Estructura y código SQL para crear un blog",
+        "description": "Proyecto en SQLServer para crear un blog",
         "link": "https://github.com/leonardoburgosd/bd-structure",
+        "fuente": "externa",
         "icons": [
             "sqlserver"
         ]
     },
     {
-        "image": "integragroup.jpg",
+        "image": "integragroup",
         "title": "Integra: Login",
         "description": "Proyecto de diseño de registro y login en Photoshop",
         "link": "https://github.com/leonardoburgosd/integra-group",
+        "fuente": "externa",
         "icons": [
             "photoshop"
         ]
     },
     {
-        "image": "akamikaProyc.png",
+        "image": "akamikaProyc",
         "title": "Akamika",
         "description": "Platforma de educación online",
         "link": "https://www.youtube.com/watch?v=63l2ByJUAUM",
+        "fuente": "externa",
         "icons": [
             "csharp",
             "sqlserver",
@@ -49,10 +54,11 @@
         ]
     },
     {
-        "image": "firebaseProyc.png",
+        "image": "firebaseProyc",
         "title": "Aplicativo movil con IOT",
         "description": "Proyecto encendido de diodo led desde Xamarin con Firebase y Arduino sin ESP",
         "link": "https://www.youtube.com/watch?v=whdph6Q_oek",
+        "fuente": "externa",
         "icons": [
             "firebase",
             "csharp",
