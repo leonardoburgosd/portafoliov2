@@ -100,8 +100,8 @@ function ProyectComponent() {
                         description={project.description}
                         link={project.link}
                         icons={[
-                            <CSharpIcon alto={30} ancho={30} />,
-                            <AngularIcon alto={30} ancho={30} />
+                            <CSharpIcon alto={30} ancho={30} title='C#' />,
+                            <AngularIcon alto={30} ancho={30} title='Angular' />
                         ]} />
                 ))}
                 <div
