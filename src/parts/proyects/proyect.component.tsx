@@ -112,7 +112,7 @@ function ProyectComponent() {
                         image={diningApp}
                         title='Dining App'
                         description='Aplicacion móvil para registro de pases de comida con Firebase y FlutterFlow'
-                        link='https://auth0rize.leonardoburgosd.site'
+                        link=''
                         icons={[<FirebaseIcon alto={30} ancho={30} title='Firebase' />,<FluterFlowIcon alto={30} ancho={30} title='FlutterFlow' />]}
                     />
                 </div>
@@ -164,8 +164,6 @@ function ProyectComponent() {
                     icons={[
                         <PhotoshopIcon alto={30} ancho={30} title='Photoshop' />
                     ]} />
-
-
 
                 <CardImage
                     image={firebase}

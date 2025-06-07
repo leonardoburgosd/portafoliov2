@@ -27,11 +27,18 @@ const CardImage: React.FC<svgProps> = ({ image, title, description, link, icons 
                             </div>
                         ))}
                     </div>
-                    <a href={link} target="_blank"
-                        rel="noreferrer" className='flex items-center lg:p-2 md:text-sm rounded-2xl lg:text-xl sm:text-lg lg:m-2 text-[#2F80ED] hover:text-[#2f97ed]'>
-                        Acceder
-                        <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
-                    </a>
+
+                    {link?.trim() && (
+                        <a
+                            href={link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className='flex items-center lg:p-2 md:text-sm rounded-2xl lg:text-xl sm:text-lg lg:m-2 text-[#2F80ED] hover:text-[#2f97ed]'
+                        >
+                            Acceder
+                            <FontAwesomeIcon icon={faArrowRight} className='pl-1' />
+                        </a>
+                    )}
                 </div>
             </div>
         </div>
