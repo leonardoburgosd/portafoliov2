@@ -2,26 +2,19 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 import { Menu, X, Github, Linkedin, ExternalLink, Code, Palette, Smartphone, ArrowRight, Star, Sun, Moon, Calendar, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Project } from "./components/project";
+import { EmailSend } from "./components/email";
 
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  rating: number;
-  isModal?: boolean;
-  fullDescription?: string;
-  features?: string[];
-  technologies?: string[];
-  imageUrl: string;
-  projectUrl?: string;
-}
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  const [datosEnvio, setDatosEnvio] = useState({
+    email: '',
+    descripcion: ''
+})
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -194,6 +187,34 @@ function App() {
     }
   };
 
+  const enviar = async () => {
+    debugger
+    let email: EmailSend = new EmailSend();
+    if (datosEnvio.descripcion != "" && datosEnvio.email != "") {
+
+        email.description = datosEnvio.descripcion;
+        email.subject = datosEnvio.email + ': te envió un mensaje';
+
+        await fetch('https://sendmail.leonardoburgosd.site/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(email)
+        });
+        setDatosEnvio({
+            email: '',
+            descripcion: ''
+        });
+        // setMostrarDiv(!mostrarDiv);
+        // setMostrarErrorDiv(false);
+
+    } else {
+        // setMostrarDiv(false);
+        // setMostrarErrorDiv(!mostrarErrorDiv);
+    }
+}
+
   const themeClasses = isDarkMode
     ? 'bg-gray-900 text-white'
     : 'bg-white text-gray-900';
@@ -283,7 +304,7 @@ function App() {
             <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
               Hola
               <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent ">
-                yo soy Leonardo Burgos
+                soy Leonardo Burgos
               </span>
             </h1>
             <p className={`text-xl sm:text-2xl ${textSecondary} mb-8 leading-relaxed`}>
@@ -601,17 +622,20 @@ function App() {
                   type="email"
                     className={`w-full px-4 py-3 border ${isDarkMode ? 'border-gray-600 bg-gray-700 text-white focus:border-blue-400' : 'border-gray-300 bg-white focus:border-blue-600'} rounded-lg focus:ring-2 focus:ring-blue-600/20 focus:border-transparent transition-all duration-200`}
                   placeholder="your@email.com"
+                  value={datosEnvio.email} onChange={(e) => setDatosEnvio({ ...datosEnvio, email: e.target.value })}
                 />
               </div>
               <div>
                 <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Mensaje</label>
                 <textarea
+                onChange={(e) => setDatosEnvio({ ...datosEnvio, descripcion: e.target.value })} required
                   rows={6}
                   className={`w-full px-4 py-3 border ${isDarkMode ? 'border-gray-600 bg-gray-700 text-white focus:border-blue-400' : 'border-gray-300 bg-white focus:border-blue-600'} rounded-lg focus:ring-2 focus:ring-blue-600/20 focus:border-transparent transition-all duration-200 resize-none`}
                   placeholder="Hablame de tu proyecto..."
+                  value={datosEnvio.descripcion}
                 ></textarea>
               </div>
-              <button
+              <button onClick={enviar}
                 type="submit"
                 className="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
