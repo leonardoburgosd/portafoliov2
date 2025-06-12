@@ -39,29 +39,49 @@ function App() {
 
   const mobileImages = [
     {
-      url: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=400&h=800&fit=crop",
-      title: "Login & Authentication",
-      description: "Secure biometric login with Face ID and Touch ID support"
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp1.jpg",
+      title: "Inicio",
+      description: "Pantalla principal"
     },
     {
-      url: "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg?auto=compress&cs=tinysrgb&w=400&h=800&fit=crop",
-      title: "Dashboard Overview",
-      description: "Clean dashboard with account balance and quick actions"
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp2.jpg",
+      title: "Registro del pase de comida",
+      description: "Ingresa el número de documento del empleado"
     },
     {
-      url: "https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=400&h=800&fit=crop",
-      title: "Transaction History",
-      description: "Detailed transaction history with smart categorization"
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp3.jpg",
+      title: "Pantalla de pase generado",
+      description: "Muestra el pase generado y permite su impresión"
     },
     {
-      url: "https://images.pexels.com/photos/5849593/pexels-photo-5849593.jpeg?auto=compress&cs=tinysrgb&w=400&h=800&fit=crop",
-      title: "Transfer & Payments",
-      description: "Easy money transfers and bill payments interface"
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp4.jpg",
+      title: "Pantalla de la configuración",
+      description: "Opciones de registro de empleado, registro de pase de comida y sincronización con la base de datos"
     },
     {
-      url: "https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=400&h=800&fit=crop",
-      title: "Investment Portfolio",
-      description: "Real-time investment tracking and portfolio management"
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp5.jpg",
+      title: "Lista de empleados",
+      description: "Vista de empleados registrados y botón para agregar un nuevo empleado, editar, eliminar y ver QR"
+    },
+    {
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp6.jpg",
+      title: "Registro de empleado",
+      description: "Formulario de registro de empleado"
+    },
+    {
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp7.jpg",
+      title: "Actualización de empleado",
+      description: "Formulario de actualización de datos de empleado"
+    },
+    {
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp8.jpg",
+      title: "Historial de registro de pases",
+      description: "Historial de registro de pases de comida y descarga de reporte"
+    },
+    {
+      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp9.jpg",
+      title: "Sincronización de datos",
+      description: "Sincronización de datos y lista de cambios realizados en la base de datos"
     }
   ];
 
@@ -107,26 +127,19 @@ function App() {
       tech: ["FluterFlow", "Firebase"],
       isModal: true,
       imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/diningApp.avif",
-      fullDescription: "A comprehensive mobile banking application built with React Native, featuring advanced security measures including biometric authentication, real-time transaction monitoring, and seamless user experience. The app includes features like account management, fund transfers, bill payments, and investment tracking.",
+      fullDescription: "Aplicacion móvil para registro de pases de comida con Firebase y FlutterFlow",
       features: [
-        "Biometric Authentication (Face ID / Touch ID)",
-        "Real-time Transaction Notifications",
-        "Advanced Security Encryption",
-        "Multi-account Management",
-        "Investment Portfolio Tracking",
-        "Bill Payment Integration",
-        "QR Code Payments",
-        "Offline Mode Support"
+        "Registro de empleados",
+        "Registro de pases de comida por documento de identidad",
+        "Historial de pases de comida",
+        "Funcionamiento offline",
+        "Impresión térmica por bluetooth",
+        "Desarga de reporte",
+        "Sincronización de datos con Firebase",
       ],
       technologies: [
-        "React Native",
-        "Node.js",
-        "PostgreSQL",
-        "Redis",
-        "JWT Authentication",
-        "Socket.io",
-        "Stripe API",
-        "AWS Services"
+        "FlutterFlow",
+        "Firebase",
       ]
     },
     {
@@ -466,13 +479,8 @@ function App() {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h3 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
-                    Mobile Banking App
+                    Aplicación de registro de pases de comida
                   </h3>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={20} className="text-yellow-400 fill-current" />
-                    ))}
-                  </div>
                 </div>
                 <button
                   onClick={() => setIsModalOpen(false)}
@@ -490,7 +498,7 @@ function App() {
                       <img
                         src={mobileImages[currentImageIndex].url}
                         alt={mobileImages[currentImageIndex].title}
-                        className="w-64 h-[500px] object-cover rounded-3xl shadow-2xl border-8 border-gray-800"
+                        className="w-64 h-[500px] p-3 object-cover rounded-3xl shadow-2xl border-8 border-gray-800"
                       />
                       <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gray-600 rounded-full"></div>
                       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-600 rounded-full"></div>
@@ -538,14 +546,14 @@ function App() {
               </div>
 
               <p className={`text-lg ${textSecondary} mb-6 leading-relaxed`}>
-                {projects[2].fullDescription}
+                {projects[0].fullDescription}
               </p>
 
               <div className="grid md:grid-cols-2 gap-8 mb-6">
                 <div>
                   <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Key Features</h4>
                   <ul className="space-y-2">
-                    {projects[2].features?.map((feature, index) => (
+                    {projects[0].features?.map((feature, index) => (
                       <li key={index} className={`flex items-center gap-2 ${textSecondary}`}>
                         <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                         {feature}
@@ -557,7 +565,7 @@ function App() {
                 <div>
                   <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Technologies Used</h4>
                   <div className="flex flex-wrap gap-2">
-                    {projects[2].technologies?.map((tech, index) => (
+                    {projects[0].technologies?.map((tech, index) => (
                       <span
                         key={index}
                         className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
@@ -569,16 +577,6 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex gap-4">
-                <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                  <ExternalLink size={20} />
-                  View Live Demo
-                </button>
-                <button className={`border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400' : 'border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600'} px-6 py-3 rounded-lg transition-colors flex items-center gap-2`}>
-                  <Github size={20} />
-                  View Code
-                </button>
-              </div>
             </div>
           </div>
         </div>
