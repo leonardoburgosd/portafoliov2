@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import { Menu, X, Github, Linkedin, ExternalLink, Code, Palette, Smartphone, ArrowRight, Star, Sun, Moon, Calendar, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Menu, X, Github, Linkedin, ExternalLink, Code, Palette, Smartphone, ArrowRight, Sun, Moon, Calendar, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Project } from "./components/project";
 import { EmailSend } from "./components/email";
 
@@ -14,7 +14,7 @@ function App() {
   const [datosEnvio, setDatosEnvio] = useState({
     email: '',
     descripcion: ''
-})
+  })
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -140,14 +140,14 @@ function App() {
       imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/authdashboard.avif",
       description: "Proyecto de administración de autenticación de usuarios",
       tech: ["Angular", "C#", "Postgre"],
-      projectUrl: "https://auth0rize.leonardoburgosd.site"
+      projectUrl: "https://auth0rize.leonardoburgos.site"
     },
     {
       title: "ButtonStyle",
       imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/buttonstyleportada.avif",
       description: "Proyecto con HTML y CSS de estilo de botones",
       tech: ["HTML", "CSS"],
-      projectUrl: "https://auth0rize.leonardoburgosd.site"
+      projectUrl: "https://github.com/leonardoburgosd/button-styles"
     },
     {
       title: "BCreate",
@@ -188,32 +188,31 @@ function App() {
   };
 
   const enviar = async () => {
-    debugger
-    let email: EmailSend = new EmailSend();
+    const email = new EmailSend();
     if (datosEnvio.descripcion != "" && datosEnvio.email != "") {
 
-        email.description = datosEnvio.descripcion;
-        email.subject = datosEnvio.email + ': te envió un mensaje';
+      email.description = datosEnvio.descripcion;
+      email.subject = datosEnvio.email + ': te envió un mensaje';
 
-        await fetch('https://sendmail.leonardoburgosd.site/send', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(email)
-        });
-        setDatosEnvio({
-            email: '',
-            descripcion: ''
-        });
-        // setMostrarDiv(!mostrarDiv);
-        // setMostrarErrorDiv(false);
+      await fetch('https://sendmail-api-lcbc.onrender.com/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(email)
+      });
+      setDatosEnvio({
+        email: '',
+        descripcion: ''
+      });
+      // setMostrarDiv(!mostrarDiv);
+      // setMostrarErrorDiv(false);
 
     } else {
-        // setMostrarDiv(false);
-        // setMostrarErrorDiv(!mostrarErrorDiv);
+      // setMostrarDiv(false);
+      // setMostrarErrorDiv(!mostrarErrorDiv);
     }
-}
+  }
 
   const themeClasses = isDarkMode
     ? 'bg-gray-900 text-white'
@@ -230,10 +229,10 @@ function App() {
     <div className={`min-h-screen transition-colors duration-300 ${themeClasses}`}>
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrollY > 50
-          ? isDarkMode
-            ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800'
-            : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
-          : 'bg-transparent'
+        ? isDarkMode
+          ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800'
+          : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
+        : 'bg-transparent'
         }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -319,7 +318,7 @@ function App() {
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('contacto')}
                 className={`border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400' : 'border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600'} px-8 py-4 rounded-full transition-all duration-300`}
               >
                 Contáctame
@@ -349,13 +348,13 @@ function App() {
                 Técnico en Computación y Tecnologías de la Información y Bachiller en Ingeniería en Sistemas Computacionales con más de cuatro años de experiencia como desarrollador .NET en servicios REST y de escritorio, y más de dos años de experiencia como desarrollador Angular.
               </p>
               <div className="flex gap-4">
-                <a
+                <a target="_blank"
                   href="https://github.com/leonardoburgosd"
                   className={`p-3 ${isDarkMode ? 'bg-gray-700 hover:bg-blue-600' : 'bg-gray-100 hover:bg-blue-600'} rounded-full hover:text-white transition-all duration-300`}
                 >
                   <Github size={20} />
-                </a>
-                <a
+                </a> 
+                <a target="_blank"
                   href="https://www.linkedin.com/in/leonardo-burgos-diaz/"
                   className={`p-3 ${isDarkMode ? 'bg-gray-700 hover:bg-blue-600' : 'bg-gray-100 hover:bg-blue-600'} rounded-full hover:text-white transition-all duration-300`}
                 >
@@ -456,20 +455,20 @@ function App() {
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="h-48 relative overflow-hidden">
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                  <div className="text-white text-center">
-                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-2">
-                      <ExternalLink size={20} />
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                    <div className="text-white text-center">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-2">
+                        <ExternalLink size={20} />
+                      </div>
+                      <p className="text-sm font-medium">{project.isModal ? 'Ver detalle' : 'Abrir link'}</p>
                     </div>
-                    <p className="text-sm font-medium">{project.isModal ? 'Ver detalle' : 'Abrir link'}</p>
                   </div>
                 </div>
-              </div>
                 <div className="p-6">
                   <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>{project.title}</h3>
                   <p className={`${textSecondary} mb-4`}>{project.description}</p>
@@ -557,8 +556,8 @@ function App() {
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
                         className={`w-3 h-3 rounded-full transition-colors ${index === currentImageIndex
-                            ? 'bg-blue-400'
-                            : isDarkMode ? 'bg-gray-600' : 'bg-gray-300'
+                          ? 'bg-blue-400'
+                          : isDarkMode ? 'bg-gray-600' : 'bg-gray-300'
                           }`}
                       />
                     ))}
@@ -572,7 +571,7 @@ function App() {
 
               <div className="grid md:grid-cols-2 gap-8 mb-6">
                 <div>
-                  <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Key Features</h4>
+                  <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Características</h4>
                   <ul className="space-y-2">
                     {projects[0].features?.map((feature, index) => (
                       <li key={index} className={`flex items-center gap-2 ${textSecondary}`}>
@@ -615,12 +614,12 @@ function App() {
           </div>
 
           <div className={`${cardClasses} rounded-2xl shadow-xl p-8 border`}>
-            <form className="space-y-6">
+            <div className="space-y-6">
               <div>
                 <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Correo</label>
                 <input
                   type="email"
-                    className={`w-full px-4 py-3 border ${isDarkMode ? 'border-gray-600 bg-gray-700 text-white focus:border-blue-400' : 'border-gray-300 bg-white focus:border-blue-600'} rounded-lg focus:ring-2 focus:ring-blue-600/20 focus:border-transparent transition-all duration-200`}
+                  className={`w-full px-4 py-3 border ${isDarkMode ? 'border-gray-600 bg-gray-700 text-white focus:border-blue-400' : 'border-gray-300 bg-white focus:border-blue-600'} rounded-lg focus:ring-2 focus:ring-blue-600/20 focus:border-transparent transition-all duration-200`}
                   placeholder="your@email.com"
                   value={datosEnvio.email} onChange={(e) => setDatosEnvio({ ...datosEnvio, email: e.target.value })}
                 />
@@ -628,7 +627,7 @@ function App() {
               <div>
                 <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Mensaje</label>
                 <textarea
-                onChange={(e) => setDatosEnvio({ ...datosEnvio, descripcion: e.target.value })} required
+                  onChange={(e) => setDatosEnvio({ ...datosEnvio, descripcion: e.target.value })} required
                   rows={6}
                   className={`w-full px-4 py-3 border ${isDarkMode ? 'border-gray-600 bg-gray-700 text-white focus:border-blue-400' : 'border-gray-300 bg-white focus:border-blue-600'} rounded-lg focus:ring-2 focus:ring-blue-600/20 focus:border-transparent transition-all duration-200 resize-none`}
                   placeholder="Hablame de tu proyecto..."
@@ -641,7 +640,7 @@ function App() {
               >
                 Enviar
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </section>
@@ -654,10 +653,10 @@ function App() {
               Leonardo Burgos
             </div>
             <div className="flex justify-center gap-6 mb-8">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/leonardoburgosd" target="_blank" className="text-gray-400 hover:text-white transition-colors">
                 <Github size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/leonardo-burgos-diaz/" target="_blank" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin size={24} />
               </a>
             </div>
