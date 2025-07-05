@@ -205,12 +205,7 @@ function App() {
         email: '',
         descripcion: ''
       });
-      // setMostrarDiv(!mostrarDiv);
-      // setMostrarErrorDiv(false);
-
     } else {
-      // setMostrarDiv(false);
-      // setMostrarErrorDiv(!mostrarErrorDiv);
     }
   }
 

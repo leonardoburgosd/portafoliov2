@@ -2,7 +2,7 @@ export interface Project {
   title: string;
   description: string;
   tech: string[];
-  rating: number;
+  rating?: number;
   isModal?: boolean;
   fullDescription?: string;
   features?: string[];
