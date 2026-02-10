@@ -32,7 +32,7 @@ export const Navbar = ({ isDarkMode, toggleTheme, scrollToSection }: NavbarProps
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center py-4">
                     <div onClick={() => handleNavClick('index')} className="flex items-center gap-2 cursor-pointer group">
-                        <img src={isDarkMode ? "/src/assets/icon_white.png" : "/src/assets/icon.png"} alt="Logo" className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110" />
+                        <img src={isDarkMode ? "/icon_white.png" : "/icon.png"} alt="Logo" className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110" />
                         <span className={`text-xl font-bold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'} transition-colors`}>
                             LeonardoBurgos
                         </span>
