@@ -32,9 +32,9 @@ export const ProjectModal = ({ isDarkMode, isOpen, onClose, project }: ProjectMo
 
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className={`${cardClasses} rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto border`}>
-                <div className="p-8">
-                    <div className="flex justify-between items-start mb-6">
+            <div className={`${cardClasses} rounded-2xl max-w-6xl w-full max-h-[90vh] flex flex-col border overflow-hidden`}>
+                <div className="px-8 pt-8 pb-6 shrink-0 z-10 relative">
+                    <div className="flex justify-between items-start">
                         <div>
                             <h3 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
                                 {project.fullDescription || project.description}
@@ -47,6 +47,9 @@ export const ProjectModal = ({ isDarkMode, isOpen, onClose, project }: ProjectMo
                             <X size={24} />
                         </button>
                     </div>
+                </div>
+
+                <div className={`px-8 pb-8 pt-0 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full ${isDarkMode ? '[&::-webkit-scrollbar-thumb]:bg-gray-600 hover:[&::-webkit-scrollbar-thumb]:bg-gray-500' : '[&::-webkit-scrollbar-thumb]:bg-gray-300 hover:[&::-webkit-scrollbar-thumb]:bg-gray-400'}`}>
 
                     {/* Image Carousel */}
                     {hasGallery && (
@@ -57,7 +60,7 @@ export const ProjectModal = ({ isDarkMode, isOpen, onClose, project }: ProjectMo
                                         <img
                                             src={gallery[currentImageIndex].url}
                                             alt={gallery[currentImageIndex].title}
-                                            className="w-full max-w-2xl h-[400px] sm:h-[500px] object-cover rounded-3xl shadow-2xl border-4 sm:border-8 border-gray-800"
+                                            className="w-auto h-auto max-w-full max-h-[60vh] object-contain rounded-3xl shadow-2xl border-4 sm:border-8 border-gray-800 mx-auto"
                                         />
                                     </div>
                                 </div>

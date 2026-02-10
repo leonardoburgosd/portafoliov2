@@ -1,7 +1,109 @@
 import { Project } from "../components/project";
 
 export const projects: Project[] = [
+    {
+        title: "Avitrax",
+        imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax.webp",
+        description: "Sistema de gestión de control de cuentas",
+        tech: [
+            "React",
+            "Tailwind CSS",
+            "NestJS",
+        ],
+        isModal: true,
+        fullDescription: "Sistema de gestión de control de cuentas por cobrar y por pagar",
+        features: [
+            "Autenticación",
+            "Modo claro/oscuro",
+            "Dashboard de resumen",
+            "Registro de ventas",
+            "Registro de pagos",
+            "Gestión de clientes",
+            "Cruce de jabas",
+            "Reportes",
+            "Gestión de zonas",
+            "Historial de precios",
+            "Gestión de camiones",
+            "Gestión de jabas",
+            "Gestión de usuarios"
+        ],
+        technologies: [
+            "React",
+            "Tailwind CSS",
+            "PostgreSQL",
+            "NestJS",
+            "AI",
+        ],
+        projectUrl: "#", // Placeholder
+        gallery: [
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax1.webp",
+                title: "Login",
+                description: "Autenticacion basica"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax2.webp",
+                title: "Modo claro",
+                description: "Modo claro de la aplicacion"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax3.webp",
+                title: "Dashboard",
+                description: "Dashboard de resumen de cuentas"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax4.webp",
 
+                title: "Registro de ventas",
+                description: "Registro de ventas por cliente"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax5.webp",
+                title: "Registro de pagos",
+                description: "Registro de pagos por usuario, fecha y monto"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax6.webp",
+                title: "Gestión de clientes",
+                description: "Gestión de clientes"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax7.webp",
+                title: "Cruce de jabas",
+                description: "Comparación en conteo de jabas entre el sistema y el usuario"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax8.webp",
+                title: "Reportes",
+                description: "Reportes de estados de cuenta"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax9.webp",
+                title: "Gestión de zonas",
+                description: "Gestión de zonas"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax10.webp",
+                title: "Historial de precios",
+                description: "Historial de precios por día"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax11.webp",
+                title: "Gestión de camiones",
+                description: "Gestión de camiones de transporte"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax12.webp",
+                title: "Gestión de jabas",
+                description: "Gestión de pesos de jabas"
+            },
+            {
+                url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/avitrax13.webp",
+                title: "Gestión de usuarios",
+                description: "Gestión de usuarios con permisos granulares"
+            }
+        ]
+    },
     {
         title: "Dining Web",
         imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/diningWeb.webp",
