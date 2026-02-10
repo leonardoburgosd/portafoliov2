@@ -9,4 +9,9 @@ export interface Project {
   technologies?: string[];
   imageUrl: string;
   projectUrl?: string;
+  gallery?: {
+    url: string;
+    title: string;
+    description: string;
+  }[];
 }

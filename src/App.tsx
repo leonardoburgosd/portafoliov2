@@ -1,668 +1,83 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
-import { Menu, X, Github, Linkedin, ExternalLink, Code, Palette, Smartphone, ArrowRight, Sun, Moon, Calendar, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Navbar } from "./components/Navbar";
+import { HeroSection } from "./components/HeroSection";
+import { AboutSection } from "./components/AboutSection";
+import { ServicesSection } from "./components/ServicesSection";
+import { PortfolioSection } from "./components/PortfolioSection";
+import { ProjectModal } from "./components/ProjectModal";
+import { ContactSection } from "./components/ContactSection";
+import { Footer } from "./components/Footer";
+
+import { projects } from "./data/projects";
 import { Project } from "./components/project";
-import { EmailSend } from "./components/email";
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [datosEnvio, setDatosEnvio] = useState({
-    email: '',
-    descripcion: ''
-  })
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
   };
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  const mobileImages = [
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp1.jpg",
-      title: "Inicio",
-      description: "Pantalla principal"
-    },
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp2.jpg",
-      title: "Registro del pase de comida",
-      description: "Ingresa el número de documento del empleado"
-    },
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp3.jpg",
-      title: "Pantalla de pase generado",
-      description: "Muestra el pase generado y permite su impresión"
-    },
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp4.jpg",
-      title: "Pantalla de la configuración",
-      description: "Opciones de registro de empleado, registro de pase de comida y sincronización con la base de datos"
-    },
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp5.jpg",
-      title: "Lista de empleados",
-      description: "Vista de empleados registrados y botón para agregar un nuevo empleado, editar, eliminar y ver QR"
-    },
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp6.jpg",
-      title: "Registro de empleado",
-      description: "Formulario de registro de empleado"
-    },
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp7.jpg",
-      title: "Actualización de empleado",
-      description: "Formulario de actualización de datos de empleado"
-    },
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp8.jpg",
-      title: "Historial de registro de pases",
-      description: "Historial de registro de pases de comida y descarga de reporte"
-    },
-    {
-      url: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/dinningApp9.jpg",
-      title: "Sincronización de datos",
-      description: "Sincronización de datos y lista de cambios realizados en la base de datos"
-    }
-  ];
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % mobileImages.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + mobileImages.length) % mobileImages.length);
-  };
-
-  const experiences = [
-    {
-      title: "Desarrollador",
-      company: "CENS",
-      period: "Diciembre 2022",
-      description: "Implementación, despliegue y mantenimiento de aplicaciones backend y frontend con tecnologías como .NET, Angular y SQL Server."
-    },
-    {
-      title: "Desarrollador .NET",
-      company: "SIGTIES",
-      period: "Diciembre 2021",
-      description: "Implementación de aplicaciones de escritorio con .NET Framework y SqlServer."
-    },
-    {
-      title: "Desarrollador Fullstack",
-      company: "CENS",
-      period: "Noviembre 2019",
-      description: "Implementación de aplicaciones web con Angular, .Net Core y SqlServer."
-    },
-    {
-      title: "Desarrollador Fullstack",
-      company: "Equipo de desarrollo independiente",
-      period: "Febrero 2018",
-      description: "Implementación de aplicaciones web con Angular, .Net Core y SqlServer."
-    }
-  ];
-
-  const projects = [
-    {
-      title: "Dinning APP",
-      description: "Aplicacion movil para registrar empleados y pases de comida",
-      tech: ["FluterFlow", "Firebase"],
-      isModal: true,
-      imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/diningApp.avif",
-      fullDescription: "Aplicacion móvil para registro de pases de comida con Firebase y FlutterFlow",
-      features: [
-        "Registro de empleados",
-        "Registro de pases de comida por documento de identidad",
-        "Historial de pases de comida",
-        "Funcionamiento offline",
-        "Impresión térmica por bluetooth",
-        "Desarga de reporte",
-        "Sincronización de datos con Firebase",
-      ],
-      technologies: [
-        "FlutterFlow",
-        "Firebase",
-      ]
-    },
-    {
-      title: "Auth0rize",
-      imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/authdashboard.avif",
-      description: "Proyecto de administración de autenticación de usuarios",
-      tech: ["Angular", "C#", "Postgre"],
-      projectUrl: "https://auth0rize.leonardoburgos.site"
-    },
-    {
-      title: "ButtonStyle",
-      imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/buttonstyleportada.avif",
-      description: "Proyecto con HTML y CSS de estilo de botones",
-      tech: ["HTML", "CSS"],
-      projectUrl: "https://github.com/leonardoburgosd/button-styles"
-    },
-    {
-      title: "BCreate",
-      imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/bcCreate.avif",
-      description: "Estructura y código SQL para crear un blog",
-      tech: ["SqlServer"],
-      projectUrl: "https://github.com/leonardoburgosd/bd-structure"
-    },
-    {
-      title: "Integra:login",
-      imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/integragroup.avif",
-      description: "Proyecto de diseño de registro y login en Photoshop",
-      tech: ["Photoshop"],
-      projectUrl: "https://github.com/leonardoburgosd/bd-structure"
-    },
-    {
-      title: "Akamika",
-      imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/akamikaProyc.avif",
-      description: "Platforma de educación online",
-      tech: ["C#", "SqlServer", "Bootstrap"],
-      projectUrl: "https://www.youtube.com/watch?v=63l2ByJUAUM"
-    },
-    {
-      title: "Aplicativo movil con IOT",
-      imageUrl: "https://s3.us-east-2.amazonaws.com/leonardoburgosd.site/portafolio/preview/firebaseProyc.avif",
-      description: "Proyecto encendido de diodo led desde Xamarin con Firebase y Arduino sin ESP",
-      tech: ["Firebase", "C#", "Xamain", "Arduino"],
-      projectUrl: "https://www.youtube.com/watch?v=whdph6Q_oek"
-    }
-  ];
-
   const handleProjectClick = (project: Project) => {
     if (project.isModal) {
+      setSelectedProject(project);
       setIsModalOpen(true);
     } else if (project.projectUrl) {
       window.open(project.projectUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
-  const enviar = async () => {
-    const email = new EmailSend();
-    if (datosEnvio.descripcion != "" && datosEnvio.email != "") {
-
-      email.description = datosEnvio.descripcion;
-      email.subject = datosEnvio.email + ': te envió un mensaje';
-
-      await fetch('https://sendmail-api-lcbc.onrender.com/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(email)
-      });
-      setDatosEnvio({
-        email: '',
-        descripcion: ''
-      });
-    } else {
-    }
-  }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // Optional: clear selected project after animation or immediately
+    // setSelectedProject(null); 
+  };
 
   const themeClasses = isDarkMode
     ? 'bg-gray-900 text-white'
     : 'bg-white text-gray-900';
 
-  const cardClasses = isDarkMode
-    ? 'bg-gray-800 border-gray-700'
-    : 'bg-white border-gray-200';
-
-  const textSecondary = isDarkMode ? 'text-gray-300' : 'text-gray-600';
-  const textMuted = isDarkMode ? 'text-gray-400' : 'text-gray-500';
-
   return (
     <div className={`min-h-screen transition-colors duration-300 ${themeClasses}`}>
-      {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrollY > 50
-        ? isDarkMode
-          ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800'
-          : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
-        : 'bg-transparent'
-        }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div onClick={() => scrollToSection('index')} className="text-2xl font-bold bg-gradient-to-r from-white to-blue-600 bg-clip-text text-transparent">
-              leonardoBurgos
-            </div>
+      <Navbar
+        isDarkMode={isDarkMode}
+        toggleTheme={toggleTheme}
+        scrollToSection={scrollToSection}
+      />
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
-              {['Sobre mi', 'Servicios', 'Portfolio', 'Contacto'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors duration-200 font-medium`}
-                >
-                  {item}
-                </button>
-              ))}
-              <button
-                onClick={toggleTheme}
-                className={`p-2 rounded-full ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'} transition-colors duration-200`}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-            </div>
+      <HeroSection
+        isDarkMode={isDarkMode}
+        scrollToSection={scrollToSection}
+      />
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-2">
-              <button
-                onClick={toggleTheme}
-                className={`p-2 rounded-full ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'} transition-colors duration-200`}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <button
-                className="p-2"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
+      <AboutSection isDarkMode={isDarkMode} />
 
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className={`md:hidden ${isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'} border-t`}>
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {['Sobre mi', 'Servicio', 'Portfolio', 'Contacto'].map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item.toLowerCase())}
-                    className={`block w-full text-left px-3 py-2 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors`}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
+      <ServicesSection isDarkMode={isDarkMode} />
 
-      {/* Hero Section */}
-      <section id="index" className={`relative min-h-screen flex items-center justify-center ${isDarkMode ? 'bg-gradient-to-br from-gray-900 to-gray-800' : 'bg-gradient-to-br from-blue-50 to-purple-50'} overflow-hidden`}>
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <div className="animate-fade-in-up">
-            <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
-              Hola
-              <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent ">
-                soy Leonardo Burgos
-              </span>
-            </h1>
-            <p className={`text-xl sm:text-2xl ${textSecondary} mb-8 leading-relaxed`}>
-              DESARROLLADOR FULLSTACK
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
-                onClick={() => scrollToSection('portfolio')}
-                className="group bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Ver mis proyectos
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button
-                onClick={() => scrollToSection('contacto')}
-                className={`border-2 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400' : 'border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600'} px-8 py-4 rounded-full transition-all duration-300`}
-              >
-                Contáctame
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className={`w-6 h-10 border-2 ${isDarkMode ? 'border-gray-400' : 'border-gray-400'} rounded-full flex justify-center`}>
-            <div className={`w-1 h-3 ${isDarkMode ? 'bg-gray-400' : 'bg-gray-400'} rounded-full mt-2 animate-pulse`}></div>
-          </div>
-        </div>
-      </section>
+      <PortfolioSection
+        isDarkMode={isDarkMode}
+        projects={projects}
+        onProjectClick={handleProjectClick}
+      />
 
-      {/* About Section */}
-      <section id="sobre mi" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Sobre mi</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
+      <ProjectModal
+        isDarkMode={isDarkMode}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        project={selectedProject}
+      />
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Personal Info */}
-            <div className="space-y-6">
-              <p className={`text-lg ${textSecondary} leading-relaxed`}>
-                Técnico en Computación y Tecnologías de la Información y Bachiller en Ingeniería en Sistemas Computacionales con 6 años de experiencia como desarrollador .NET en servicios REST y de escritorio, y 3 años de experiencia como desarrollador Angular.
-              </p>
-              <div className="flex gap-4">
-                <a target="_blank"
-                  href="https://github.com/leonardoburgosd"
-                  className={`p-3 ${isDarkMode ? 'bg-gray-700 hover:bg-blue-600' : 'bg-gray-100 hover:bg-blue-600'} rounded-full hover:text-white transition-all duration-300`}
-                >
-                  <Github size={20} />
-                </a> 
-                <a target="_blank"
-                  href="https://www.linkedin.com/in/leonardo-burgos-diaz/"
-                  className={`p-3 ${isDarkMode ? 'bg-gray-700 hover:bg-blue-600' : 'bg-gray-100 hover:bg-blue-600'} rounded-full hover:text-white transition-all duration-300`}
-                >
-                  <Linkedin size={20} />
-                </a>
-              </div>
-            </div>
+      <ContactSection isDarkMode={isDarkMode} />
 
-            {/* Experience Timeline */}
-            <div className="space-y-6">
-              <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6 flex items-center gap-2`}>
-                <Briefcase size={24} className="text-blue-400" />
-                Experiencia
-              </h3>
-              <div className="space-y-6">
-                {experiences.map((exp, index) => (
-                  <div key={index} className="relative pl-8 border-l-2 border-blue-400">
-                    <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-400 rounded-full"></div>
-                    <div className={`${cardClasses} p-6 rounded-lg shadow-lg border`}>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Calendar size={16} className="text-blue-400" />
-                        <span className="text-blue-400 font-medium">{exp.period}</span>
-                      </div>
-                      <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>
-                        {exp.title}
-                      </h4>
-                      <p className={`${textMuted} mb-3`}>{exp.company}</p>
-                      <p className={`${textSecondary} leading-relaxed`}>{exp.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="servicios" className={`py-20 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Servicios</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
-            <p className={`text-xl ${textSecondary} max-w-3xl mx-auto`}>
-              Ofrezco soluciones digitales integrales para ayudar a dar vida a tus ideas
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Code size={32} />,
-                title: "Desarrollo frontend",
-                description: "Desarrollo web utilizando tecnologías modernas para crear aplicaciones web escalables."
-              },
-              {
-                icon: <Palette size={32} />,
-                title: "Desarrollo Backend",
-                description: "Creación de APIs robustas y eficientes con .NET Core, bases de datos SQL y NoSQL."
-              },
-              {
-                icon: <Smartphone size={32} />,
-                title: "Desarrollo Móvil",
-                description: "Desarrollo de aplicaciones movil LOW-CODE."
-              }
-            ].map((service, index) => (
-              <div
-                key={index}
-                className={`${cardClasses} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 border`}
-              >
-                <div className="text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
-                </div>
-                <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>{service.title}</h3>
-                <p className={`${textSecondary} leading-relaxed`}>{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Section */}
-      <section id="portfolio" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Portfolio</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
-            <p className={`text-xl ${textSecondary} max-w-3xl mx-auto`}>
-              Una muestra de mis proyectos personales.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className={`${isDarkMode ? 'bg-gradient-to-br from-gray-700 to-gray-800' : 'bg-gradient-to-br from-gray-50 to-gray-100'} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer`}
-                onClick={() => handleProjectClick(project)}
-              >
-                <div className="h-48 relative overflow-hidden">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <div className="text-white text-center">
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-2">
-                        <ExternalLink size={20} />
-                      </div>
-                      <p className="text-sm font-medium">{project.isModal ? 'Ver detalle' : 'Abrir link'}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>{project.title}</h3>
-                  <p className={`${textSecondary} mb-4`}>{project.description}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Project Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className={`${cardClasses} rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto border`}>
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <h3 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
-                    Aplicación de registro de pases de comida
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className={`p-2 ${isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'} rounded-full transition-colors`}
-                >
-                  <X size={24} />
-                </button>
-              </div>
-
-              {/* Mobile Image Carousel */}
-              <div className="mb-8">
-                <div className="relative">
-                  <div className="flex justify-center mb-4">
-                    <div className="relative">
-                      <img
-                        src={mobileImages[currentImageIndex].url}
-                        alt={mobileImages[currentImageIndex].title}
-                        className="w-64 h-[500px] p-3 object-cover rounded-3xl shadow-2xl border-8 border-gray-800"
-                      />
-                      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gray-600 rounded-full"></div>
-                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-600 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  {/* Navigation Buttons */}
-                  <button
-                    onClick={prevImage}
-                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 p-3 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-white hover:bg-gray-100'} rounded-full shadow-lg transition-colors`}
-                  >
-                    <ChevronLeft size={24} />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className={`absolute right-4 top-1/2 transform -translate-y-1/2 p-3 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-white hover:bg-gray-100'} rounded-full shadow-lg transition-colors`}
-                  >
-                    <ChevronRight size={24} />
-                  </button>
-                </div>
-
-                {/* Image Info */}
-                <div className="text-center">
-                  <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
-                    {mobileImages[currentImageIndex].title}
-                  </h4>
-                  <p className={`${textSecondary} mb-4`}>
-                    {mobileImages[currentImageIndex].description}
-                  </p>
-
-                  {/* Image Indicators */}
-                  <div className="flex justify-center gap-2">
-                    {mobileImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-colors ${index === currentImageIndex
-                          ? 'bg-blue-400'
-                          : isDarkMode ? 'bg-gray-600' : 'bg-gray-300'
-                          }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <p className={`text-lg ${textSecondary} mb-6 leading-relaxed`}>
-                {projects[0].fullDescription}
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-8 mb-6">
-                <div>
-                  <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Características</h4>
-                  <ul className="space-y-2">
-                    {projects[0].features?.map((feature, index) => (
-                      <li key={index} className={`flex items-center gap-2 ${textSecondary}`}>
-                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Technologies Used</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {projects[0].technologies?.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Contact Section */}
-      <section id="contacto" className={`py-20 ${isDarkMode ? 'bg-gradient-to-br from-gray-900 to-gray-800' : 'bg-gradient-to-br from-blue-50 to-purple-50'}`}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Trabajemos juntos</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
-            <p className={`text-xl ${textSecondary}`}>
-              ¿Listo para hacer realidad tus ideas? Cuentame de tu próximo proyecto.
-            </p>
-          </div>
-
-          <div className={`${cardClasses} rounded-2xl shadow-xl p-8 border`}>
-            <div className="space-y-6">
-              <div>
-                <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Correo</label>
-                <input
-                  type="email"
-                  className={`w-full px-4 py-3 border ${isDarkMode ? 'border-gray-600 bg-gray-700 text-white focus:border-blue-400' : 'border-gray-300 bg-white focus:border-blue-600'} rounded-lg focus:ring-2 focus:ring-blue-600/20 focus:border-transparent transition-all duration-200`}
-                  placeholder="your@email.com"
-                  value={datosEnvio.email} onChange={(e) => setDatosEnvio({ ...datosEnvio, email: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>Mensaje</label>
-                <textarea
-                  onChange={(e) => setDatosEnvio({ ...datosEnvio, descripcion: e.target.value })} required
-                  rows={6}
-                  className={`w-full px-4 py-3 border ${isDarkMode ? 'border-gray-600 bg-gray-700 text-white focus:border-blue-400' : 'border-gray-300 bg-white focus:border-blue-600'} rounded-lg focus:ring-2 focus:ring-blue-600/20 focus:border-transparent transition-all duration-200 resize-none`}
-                  placeholder="Hablame de tu proyecto..."
-                  value={datosEnvio.descripcion}
-                ></textarea>
-              </div>
-              <button onClick={enviar}
-                type="submit"
-                className="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Enviar
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className={`${isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-gray-900'} text-white py-12 border-t`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Leonardo Burgos
-            </div>
-            <div className="flex justify-center gap-6 mb-8">
-              <a href="https://github.com/leonardoburgosd" target="_blank" className="text-gray-400 hover:text-white transition-colors">
-                <Github size={24} />
-              </a>
-              <a href="https://www.linkedin.com/in/leonardo-burgos-diaz/" target="_blank" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin size={24} />
-              </a>
-            </div>
-            <div className="border-t border-gray-800 pt-8">
-              <p className="text-gray-400">
-                2025 Leonardo Burgos.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer isDarkMode={isDarkMode} />
     </div>
   );
 }
