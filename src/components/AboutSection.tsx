@@ -48,7 +48,7 @@ export const AboutSection = ({ isDarkMode }: AboutSectionProps) => {
                     {/* Personal Info */}
                     <div className="space-y-6">
                         <p className={`text-lg ${textSecondary} leading-relaxed`}>
-                            Técnico en Computación y Tecnologías de la Información y Bachiller en Ingeniería en Sistemas Computacionales con 6 años de experiencia como desarrollador .NET en servicios REST y de escritorio, y 4 años de experiencia como desarrollador Angular.
+                            Técnico en Computación e Informática y Bachiller en Ingeniería en Sistemas Computacionales con 6 años de experiencia como desarrollador .NET en servicios REST y de escritorio, y 4 años de experiencia como desarrollador Angular.
                         </p>
                         <div className="flex gap-4">
                             <a target="_blank" rel="noopener noreferrer"
