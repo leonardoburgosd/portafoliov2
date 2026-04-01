@@ -1,4 +1,4 @@
-import { Code, Palette, Smartphone } from 'lucide-react';
+import { Brain, Cable, Code, Database, Palette, Smartphone } from 'lucide-react';
 
 interface ServicesSectionProps {
     isDarkMode: boolean;
@@ -10,19 +10,34 @@ export const ServicesSection = ({ isDarkMode }: ServicesSectionProps) => {
 
     const services = [
         {
-            icon: <Code size={32} />,
+            icon: <Palette size={32} />,
             title: "Desarrollo frontend",
-            description: "Desarrollo web utilizando tecnologías modernas para crear aplicaciones web escalables."
+            description: "Desarrollo web con tecnologías modernas."
         },
         {
-            icon: <Palette size={32} />,
+            icon: <Code size={32} />,
             title: "Desarrollo Backend",
-            description: "Creación de APIs robustas y eficientes con .NET Core, bases de datos SQL y NoSQL."
+            description: "Creación de APIs y eficientes con .NET Core, bases de datos SQL y NoSQL."
+        },
+        {
+            icon: <Database size={32} />,
+            title: "Implementación de bases de datos",
+            description: "Diseño e implementación de bases de datos SQL y NoSQL."
         },
         {
             icon: <Smartphone size={32} />,
             title: "Desarrollo Móvil",
             description: "Desarrollo de aplicaciones movil LOW-CODE."
+        },
+        {
+            icon: <Cable size={32} />,
+            title: "Integración de servicios",
+            description: "Integración de servicios y APIs de terceros."
+        },
+        {
+            icon: <Brain size={32} />,
+            title: "Desarrollo potenciado con IA",
+            description: "Desarrollo fullstack con IA."
         }
     ];
 
