@@ -48,7 +48,7 @@ export const AboutSection = ({ isDarkMode }: AboutSectionProps) => {
                     {/* Personal Info */}
                     <div className="space-y-6">
                         <p className={`text-lg ${textSecondary} leading-relaxed`}>
-                            Técnico en Computación e Informática y Bachiller en Ingeniería en Sistemas Computacionales con 6 años de experiencia como desarrollador .NET en servicios REST y de escritorio, y 4 años de experiencia como desarrollador Angular.
+                            Desarrollador de software con más de 6 años de experiencia, especializado en backend con .NET y construcción de APIs REST para sistemas empresariales. Experiencia complementaria en Node.js (NestJS) y desarrollo frontend con Angular y React, participando en la implementación de interfaces y consumo de servicios. Experiencia en integración de servicios, gestión de bases de datos y autenticación (JWT, OAuth). Enfocado en soluciones escalables, mantenibles y de alto rendimiento.
                         </p>
                         <div className="flex gap-4">
                             <a target="_blank" rel="noopener noreferrer"
