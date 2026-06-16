@@ -7,30 +7,58 @@ interface AboutSectionProps {
 export const AboutSection = ({ isDarkMode }: AboutSectionProps) => {
   const experiences = [
     {
-      title: "Desarrollador",
+      title: "Arquitecto de software",
       company: "CENS",
-      period: "Diciembre 2023",
+      period: "Junio 2026 - Actualidad",
+      description:
+        "Liderazgo técnico y diseño de arquitectura de software para soluciones escalables.",
+    },
+    {
+      title: "Desarrollador backend",
+      company: "CENS",
+      period: "Enero 2023 - Mayo 2026",
       description:
         "Implementación, despliegue y mantenimiento de aplicaciones backend y frontend con tecnologías como .NET, Angular y SQL Server.",
     },
     {
-      title: "Desarrollador .NET",
+      title: "Desarrollador de back-end",
+      company: "Multilingual",
+      period: "Febrero 2024 - Septiembre 2025",
+      description:
+        "Implementación de API REST con NestJS y .NET Core. Implementación de interfaces en React.",
+    },
+    {
+      title: "Programador full stack móvil",
+      company: "Pequeño equipo independiente",
+      period: "Mayo 2025 - Agosto 2025",
+      description:
+        "Implementación de aplicación móvil para registro de entrega de alimentos e implementación de aplicación web para visualización de reportes de entrega.",
+    },
+    {
+      title: "Desarrollador Backend",
+      company: "Colegio Tecnológico Médico del Perú",
+      period: "Junio 2023 - Noviembre 2023",
+      description:
+        "Implementación de emisión de comprobantes electrónicos, servicios REST para gestión de pagos, colegiados y deudas, configuración de servidor Windows Server y despliegue de soluciones.",
+    },
+    {
+      title: "Analista Programador .NET",
       company: "SIGTIES",
-      period: "Diciembre 2021",
+      period: "Diciembre 2021 - Febrero 2023",
       description:
         "Implementación de aplicaciones de escritorio con .NET Framework y SqlServer.",
     },
     {
-      title: "Desarrollador Fullstack",
+      title: "Desarrollador de aplicaciones web",
       company: "CENS",
-      period: "Noviembre 2019",
+      period: "Noviembre 2019 - Septiembre 2021",
       description:
         "Implementación de aplicaciones web con Angular, .Net Core y SqlServer.",
     },
     {
-      title: "Desarrollador Fullstack",
+      title: "Desarrollador full stack",
       company: "Equipo de desarrollo independiente",
-      period: "Febrero 2018",
+      period: "Febrero 2018 - Julio 2018",
       description:
         "Implementación de aplicaciones web con Angular, .Net Core y SqlServer.",
     },
@@ -57,7 +85,7 @@ export const AboutSection = ({ isDarkMode }: AboutSectionProps) => {
           <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="flex flex-col gap-12">
           {/* Personal Info */}
           <div className="space-y-6">
             <p className={`text-lg ${textSecondary} leading-relaxed`}>
@@ -98,32 +126,27 @@ export const AboutSection = ({ isDarkMode }: AboutSectionProps) => {
               <Briefcase size={24} className="text-blue-400" />
               Experiencia
             </h3>
-            <div className="space-y-6">
+            <div className="relative flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory scrollbar-hide [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-gray-900/95 [&::-webkit-scrollbar-thumb]:bg-white/95 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/95">
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className="relative pl-8 border-l-2 border-blue-400"
+                  className={`flex-shrink-0 w-80 snap-start ${cardClasses} p-6 rounded-lg shadow-lg border relative`}
                 >
-                  <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-400 rounded-full"></div>
-                  <div
-                    className={`${cardClasses} p-6 rounded-lg shadow-lg border`}
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <Calendar size={16} className="text-blue-400" />
-                      <span className="text-blue-400 font-medium">
-                        {exp.period}
-                      </span>
-                    </div>
-                    <h4
-                      className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"} mb-1`}
-                    >
-                      {exp.title}
-                    </h4>
-                    <p className={`${textMuted} mb-3`}>{exp.company}</p>
-                    <p className={`${textSecondary} leading-relaxed`}>
-                      {exp.description}
-                    </p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Calendar size={16} className="text-blue-400" />
+                    <span className="text-blue-400 font-medium">
+                      {exp.period}
+                    </span>
                   </div>
+                  <h4
+                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"} mb-1`}
+                  >
+                    {exp.title}
+                  </h4>
+                  <p className={`${textMuted} mb-3`}>{exp.company}</p>
+                  <p className={`${textSecondary} leading-relaxed`}>
+                    {exp.description}
+                  </p>
                 </div>
               ))}
             </div>
