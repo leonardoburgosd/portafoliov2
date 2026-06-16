@@ -89,14 +89,13 @@ export const AboutSection = ({ isDarkMode }: AboutSectionProps) => {
           {/* Personal Info */}
           <div className="space-y-6">
             <p className={`text-lg ${textSecondary} leading-relaxed`}>
-              Desarrollador de software con más de 6 años de experiencia,
-              especializado en backend con .NET y construcción de APIs REST para
-              sistemas empresariales. Experiencia complementaria en Node.js
-              (NestJS) y desarrollo frontend con Angular y React, participando
-              en la implementación de interfaces y consumo de servicios.
-              Experiencia en integración de servicios, gestión de bases de datos
-              y autenticación (JWT, OAuth). Enfocado en soluciones escalables,
-              mantenibles y de alto rendimiento.
+              Desarrollador Fullstack con más de 6 años de experiencia,
+              especializado en backend con .NET y la arquitectura de APIs REST
+              para sistemas empresariales. Cuento con un perfil versátil que
+              integra Node.js (NestJS) y el desarrollo de interfaces modernas en
+              Angular y React. Experto en gestión de bases de datos y seguridad
+              (JWT, OAuth), enfocado en crear soluciones escalables, mantenibles
+              y de alto rendimiento.
             </p>
             <div className="flex gap-4">
               <a
