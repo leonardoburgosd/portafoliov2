@@ -7,10 +7,10 @@ interface ExperienceSectionProps {
 const experiences = [
     {
         date: 'Agosto 2026 - Actualidad',
-        role: 'Arquitecto de Software',
-        company: 'LARAMA BERRIES',
+        role: 'Desarrollador web',
+        company: 'Larama Berries',
         description: 'Encargado de diseño y desarrollo de landing page.',
-        tech: ['Figma', 'HTML', 'CSS', 'React', 'Wordpress'],
+        tech: ['Figma', 'HTML', 'CSS', 'JavaScript', 'React', 'Wordpress'],
     },
     {
         date: 'Junio 2026 - Julio 2026',
