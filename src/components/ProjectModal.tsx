@@ -1,21 +1,17 @@
 import { useState } from 'react';
-import { X, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Project } from './project';
 
 interface ProjectModalProps {
-    isDarkMode: boolean;
     isOpen: boolean;
     onClose: () => void;
     project: Project | null;
 }
 
-export const ProjectModal = ({ isDarkMode, isOpen, onClose, project }: ProjectModalProps) => {
+export const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     if (!isOpen || !project) return null;
-
-    const textSecondary = isDarkMode ? 'text-gray-300' : 'text-gray-600';
-    const cardClasses = isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200';
 
     const gallery = project.gallery || [];
     const hasGallery = gallery.length > 0;
@@ -31,110 +27,98 @@ export const ProjectModal = ({ isDarkMode, isOpen, onClose, project }: ProjectMo
     };
 
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className={`${cardClasses} rounded-2xl max-w-6xl w-full max-h-[90vh] flex flex-col border overflow-hidden`}>
-                <div className="px-8 pt-8 pb-6 shrink-0 z-10 relative">
-                    <div className="flex justify-between items-start">
-                        <div>
-                            <h3 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
-                                {project.fullDescription || project.description}
-                            </h3>
+        <div
+            className="fixed inset-0 z-[200] flex items-center justify-center opacity-100 pointer-events-auto transition-opacity duration-300"
+            onClick={onClose}
+        >
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-[10px]" />
+
+            {/* Content */}
+            <div
+                className="relative z-1 bg-[#111] border border-white/[0.06] rounded-[10px] max-w-[800px] w-[92%] max-h-[90vh] overflow-y-auto p-8 pb-6"
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* Close button */}
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-5 w-8 h-8 flex items-center justify-center rounded-full text-[#666] hover:text-white hover:bg-white/[0.08] transition-all z-10"
+                >
+                    <X size={20} />
+                </button>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold tracking-[4px] text-white mb-5">
+                    {project.title.toUpperCase()}
+                </h3>
+
+                {/* Carousel */}
+                {hasGallery && (
+                    <div className="relative mb-4 bg-[#0a0a0a] rounded-lg overflow-hidden">
+                        <img
+                            src={gallery[currentImageIndex].url}
+                            alt={gallery[currentImageIndex].title}
+                            className="w-full aspect-[16/10] object-contain bg-[#0a0a0a]"
+                        />
+
+                        {/* Counter */}
+                        <div className="absolute top-3 right-3 text-[0.6rem] font-medium tracking-[1px] text-[#888] bg-black/50 px-2.5 py-1 rounded-full backdrop-blur-[4px] z-10">
+                            {currentImageIndex + 1} / {gallery.length}
                         </div>
+
+                        {/* Prev button */}
                         <button
-                            onClick={onClose}
-                            className={`p-2 ${isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'} rounded-full transition-colors`}
+                            onClick={prevImage}
+                            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/[0.08] border border-white/[0.1] text-white flex items-center justify-center cursor-pointer hover:bg-white/[0.18] transition-all backdrop-blur-[4px] z-10"
                         >
-                            <X size={24} />
+                            <ChevronLeft size={20} />
+                        </button>
+
+                        {/* Next button */}
+                        <button
+                            onClick={nextImage}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/[0.08] border border-white/[0.1] text-white flex items-center justify-center cursor-pointer hover:bg-white/[0.18] transition-all backdrop-blur-[4px] z-10"
+                        >
+                            <ChevronRight size={20} />
                         </button>
                     </div>
-                </div>
+                )}
 
-                <div className={`px-8 pb-8 pt-0 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full ${isDarkMode ? '[&::-webkit-scrollbar-thumb]:bg-gray-600 hover:[&::-webkit-scrollbar-thumb]:bg-gray-500' : '[&::-webkit-scrollbar-thumb]:bg-gray-300 hover:[&::-webkit-scrollbar-thumb]:bg-gray-400'}`}>
-
-                    {/* Image Carousel */}
-                    {hasGallery && (
-                        <div className="mb-8">
-                            <div className="relative">
-                                <div className="flex justify-center mb-4">
-                                    <div className="relative">
-                                        <img
-                                            src={gallery[currentImageIndex].url}
-                                            alt={gallery[currentImageIndex].title}
-                                            className="w-auto h-auto max-w-full max-h-[60vh] object-contain rounded-3xl shadow-2xl border-4 sm:border-8 border-gray-800 mx-auto"
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Navigation Buttons */}
-                                <button
-                                    onClick={prevImage}
-                                    className={`absolute left-0 sm:left-4 top-1/2 transform -translate-y-1/2 p-3 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-white hover:bg-gray-100'} rounded-full shadow-lg transition-colors`}
-                                >
-                                    <ChevronLeft size={24} />
-                                </button>
-                                <button
-                                    onClick={nextImage}
-                                    className={`absolute right-0 sm:right-4 top-1/2 transform -translate-y-1/2 p-3 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-white hover:bg-gray-100'} rounded-full shadow-lg transition-colors`}
-                                >
-                                    <ChevronRight size={24} />
-                                </button>
-                            </div>
-
-                            {/* Image Info */}
-                            <div className="text-center">
-                                <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
-                                    {gallery[currentImageIndex].title}
-                                </h4>
-                                <p className={`${textSecondary} mb-4`}>
-                                    {gallery[currentImageIndex].description}
-                                </p>
-
-                                {/* Image Indicators */}
-                                <div className="flex justify-center gap-2 flex-wrap">
-                                    {gallery.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => setCurrentImageIndex(index)}
-                                            className={`w-3 h-3 rounded-full transition-colors ${index === currentImageIndex
-                                                ? 'bg-blue-400'
-                                                : isDarkMode ? 'bg-gray-600' : 'bg-gray-300'
-                                                }`}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    <div className="grid md:grid-cols-2 gap-8 mb-6">
-                        <div>
-                            <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Características</h4>
-                            <ul className="space-y-2">
-                                {project.features?.map((feature, index) => (
-                                    <li key={index} className={`flex items-center gap-2 ${textSecondary}`}>
-                                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4`}>Technologías usadas</h4>
-                            <div className="flex flex-wrap gap-2">
-                                {project.technologies?.map((tech, index) => (
-                                    <span
-                                        key={index}
-                                        className={`px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full flex items-center gap-1`}
-                                    >
-                                        {tech === 'AI' ? <Sparkles size={16} /> : tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
+                {/* Dots */}
+                {hasGallery && (
+                    <div className="flex justify-center gap-1.5 mb-5">
+                        {gallery.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentImageIndex(index)}
+                                className={`h-1.5 rounded-full transition-all duration-300 ${
+                                    index === currentImageIndex
+                                        ? 'bg-white w-4'
+                                        : 'bg-[#333] w-1.5'
+                                }`}
+                            />
+                        ))}
                     </div>
+                )}
 
-                </div>
+                {/* Feature tags */}
+                {project.features && project.features.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        {project.features.map((feature, index) => (
+                            <span
+                                key={index}
+                                className="text-[0.58rem] px-2.5 py-1 rounded-full bg-white/[0.06] text-[#888]"
+                            >
+                                {feature}
+                            </span>
+                        ))}
+                    </div>
+                )}
+
+                {/* Description */}
+                <p className="text-[0.75rem] text-[#666] leading-[1.7]">
+                    {project.fullDescription || project.description}
+                </p>
             </div>
         </div>
     );

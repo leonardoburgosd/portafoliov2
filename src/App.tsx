@@ -3,12 +3,13 @@ import "./App.css";
 
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
-import { AboutSection } from "./components/AboutSection";
-import { ServicesSection } from "./components/ServicesSection";
+import { ExperienceSection } from "./components/ExperienceSection";
 import { PortfolioSection } from "./components/PortfolioSection";
 import { ProjectModal } from "./components/ProjectModal";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
+import { SocialSidebar } from "./components/SocialSidebar";
+import { ScrollIndicator } from "./components/ScrollIndicator";
 
 import { projects } from "./data/projects";
 import { Project } from "./components/project";
@@ -37,12 +38,10 @@ function App() {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    // Optional: clear selected project after animation or immediately
-    // setSelectedProject(null); 
   };
 
   const themeClasses = isDarkMode
-    ? 'bg-gray-900 text-white'
+    ? 'bg-[#0a0a0a] text-white'
     : 'bg-white text-gray-900';
 
   return (
@@ -53,14 +52,11 @@ function App() {
         scrollToSection={scrollToSection}
       />
 
-      <HeroSection
-        isDarkMode={isDarkMode}
-        scrollToSection={scrollToSection}
-      />
+      <SocialSidebar isDarkMode={isDarkMode} />
 
-      <AboutSection isDarkMode={isDarkMode} />
+      <ScrollIndicator isDarkMode={isDarkMode} />
 
-      <ServicesSection isDarkMode={isDarkMode} />
+      <HeroSection isDarkMode={isDarkMode} />
 
       <PortfolioSection
         isDarkMode={isDarkMode}
@@ -69,11 +65,12 @@ function App() {
       />
 
       <ProjectModal
-        isDarkMode={isDarkMode}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         project={selectedProject}
       />
+
+      <ExperienceSection isDarkMode={isDarkMode} />
 
       <ContactSection isDarkMode={isDarkMode} />
 
